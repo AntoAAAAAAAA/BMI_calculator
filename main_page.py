@@ -71,6 +71,22 @@ translations = {
     "bmi_warning": {
         "English": "BMI cannot be calculated until both weight and height are valid.",
         "Spanish": "El IMC no se puede calcular hasta que tanto el peso como la altura sean válidos.",
+    },
+    "underweight": {
+        "English": "Underweight",
+        "Spanish": "Bajo peso",
+    },
+    "normal": {
+        "English": "Normal",
+        "Spanish": "Normal",
+    },
+    "overweight": {
+        "English": "Overweight",
+        "Spanish": "Sobrepeso",
+    },
+    "obese": {
+        "English": "Obese",
+        "Spanish": "Obeso",
     }
 }
 
@@ -149,6 +165,8 @@ st.write('')
 # Results
 st.subheader(get_text('results_subheader', language))
 
+bmi=None
+valid_bmi = False
 if not valid_height1:
     st.write(get_text('not_valid_weight', language))
 
@@ -169,10 +187,21 @@ if height_valid and weight_valid:
 
     bmi = round((final_weight / (final_height_meter)**2), 2)
 
-    st.write(f"{get_text('final_weight_kg', language)}: {final_weight} kg")
-    st.write(f"{get_text('final_height_m', language)}: {final_height_meter} m")
-
-    st.success(f"{get_text('bmi_result', language)}: {bmi}")
-
+    valid_bmi = True
 else:
     st.warning(get_text('bmi_warning', language))
+
+if valid_bmi:
+    if bmi < 18.5:
+        #st.warning(f"{get_text('bmi_result', language)} {bmi}")
+        st.metric(label="BMI", value=round(bmi, 2), border=True)
+        st.warning(get_text('underweight', language))
+    elif bmi < 25:
+        st.metric(label="BMI", value=round(bmi, 2), border=True)
+        st.success(get_text('normal', language))
+    elif bmi < 30:
+        st.metric(label="BMI", value=round(bmi, 2), border=True)
+        st.warning(get_text('overweight', language))
+    else:
+        st.metric(label="BMI", value=round(bmi, 2), border=True)
+        st.error(get_text('obese', language))
