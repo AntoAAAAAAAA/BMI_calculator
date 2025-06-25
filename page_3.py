@@ -58,7 +58,7 @@ if valid_bmi and bmi is not None:
     else:
         comparison_text = get_text("bmi_equal_average", language)
     
-    st.success(comparison_text)
+    st.info(comparison_text)
 
     # Nicer graph
     fig, ax = plt.subplots(figsize=(6, 4))
@@ -85,9 +85,9 @@ if valid_bmi and bmi is not None:
     st.pyplot(fig)
 
     if bmi > 25:
-        st.info("🔗 [Tips for Healthy Weight Management](https://www.cdc.gov/healthyweight/index.html)")
+        st.success("🔗 [Tips for Healthy Weight Management](https://www.cdc.gov/healthyweight/index.html)")
     elif bmi < 18.5:
-        st.info("🔗 [Understanding Underweight Risks](https://www.cdc.gov/nutrition/index.html)")
+        st.success("🔗 [Understanding Underweight Risks](https://www.cdc.gov/nutrition/index.html)")
 
 else:
     st.info("⏳ Waiting on BMI input...")    
