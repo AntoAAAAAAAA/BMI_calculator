@@ -12,8 +12,8 @@ st.session_state.language = language
 # Define the pages
 main_page = st.Page("main_page.py", title="BMI Calculator")
 page_2 = st.Page("page_2.py", title="Understand Your Results")
-
+page_3 = st.Page('page_3.py', title='Compare your Results')
 # Navigation
-pg = st.navigation([main_page, page_2])
+pg = st.navigation([main_page, page_2, page_3])
 
 pg.run()
