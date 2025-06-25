@@ -84,12 +84,10 @@ if valid_bmi and bmi is not None:
 
     st.pyplot(fig)
 
+    if bmi > 25:
+        st.info("🔗 [Tips for Healthy Weight Management](https://www.cdc.gov/healthyweight/index.html)")
+    elif bmi < 18.5:
+        st.info("🔗 [Understanding Underweight Risks](https://www.cdc.gov/nutrition/index.html)")
+
 else:
-    st.info("⏳ Waiting on BMI input...")
-
-
-if bmi > 25:
-    st.info("🔗 [Tips for Healthy Weight Management](https://www.cdc.gov/healthyweight/index.html)")
-elif bmi < 18.5:
-    st.info("🔗 [Understanding Underweight Risks](https://www.cdc.gov/nutrition/index.html)")
-
+    st.info("⏳ Waiting on BMI input...")    
