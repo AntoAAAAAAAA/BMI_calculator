@@ -114,7 +114,12 @@ def get_text(key, language):
 st.title(get_text("page_title", language))
 st.markdown('-----')
 
-tab1, tab2, tab3, tab4 = st.tabs(['Underweight', 'Normal', 'Overweight', 'Obese'])
+tab1, tab2, tab3, tab4 = st.tabs([
+    get_text("underweight_tab", language),
+    get_text("normal_tab", language),
+    get_text("overweight_tab", language),
+    get_text("obese_tab", language)
+])
 
 with tab1:
     st.title(get_text("bmi_category_underweight", language))
