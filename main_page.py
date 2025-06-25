@@ -42,7 +42,7 @@ translations = {
     },
     "height_waiting": {
         "English": "Waiting for valid height input...",
-        "Spanish": "Esperando una entrada de altura válida...",
+        "Spanish": "Por favor, ingresa una altura válida...",
     },
     "results_subheader": {
         "English": "Results:",
@@ -70,7 +70,7 @@ translations = {
     },
     "bmi_warning": {
         "English": "BMI cannot be calculated until both weight and height are valid.",
-        "Spanish": "El IMC no se puede calcular hasta que tanto el peso como la altura sean válidos.",
+        "Spanish": "El IMC no se puede calcular hasta que el peso y la altura sean validos.",
     },
     "underweight": {
         "English": "Underweight",
@@ -96,7 +96,9 @@ def get_text(key, language):
 
 # Display the content based on the selected language
 st.title(get_text('page_title', language))
+st.markdown('-----')
 st.write(get_text('intro_text', language))
+
 
 valid_weight = None
 weight_valid = False
