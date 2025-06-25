@@ -87,6 +87,10 @@ translations = {
     "obese": {
         "English": "Obese",
         "Spanish": "Obeso",
+    },
+    "disclaimer": {
+    "English": "⚠️ **Disclaimer:** This tool is for general educational purposes only and does not provide medical advice. Please consult a healthcare provider for personalized health guidance.",
+    "Spanish": "⚠️ **Descargo de responsabilidad:** Esta herramienta es solo para fines educativos generales y no proporciona asesoramiento médico. Consulte a un proveedor de atención médica para obtener orientación personalizada.",
     }
 }
 
@@ -207,3 +211,21 @@ if valid_bmi:
     else:
         st.metric(label="BMI", value=round(bmi, 2), border=True)
         st.error(get_text('obese', language))
+
+st.text('')
+st.text('')
+st.text('')
+st.text('')
+st.markdown(f"""
+<div style="
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-left: 5px solid #888888;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #333;
+">
+    {get_text("disclaimer", language)}
+</div>
+""", unsafe_allow_html=True)
