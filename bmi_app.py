@@ -17,8 +17,6 @@ page_3 = st.Page('page_3.py', title='Compare your Results')
 pg = st.navigation([main_page, page_2, page_3])
 
 pg.run()
-
-translations = {
     "page_title": {
         "English": "BMI + Health Metric Calculator",
         "Spanish": "Calculadora de Índice de Masa Corporal y Métricas de Salud",
